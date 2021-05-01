@@ -10,13 +10,13 @@ void Method(const FunctionCallbackInfo<Value>& args) {
 
 	// Check number of arguments passed
 	if (args.Length() < 5) {
-		isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Wrong number of arguments")));
+		// isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Wrong number of arguments")));
 		return;
 	}
 
 	//Check the argument types
 	if (!args[0]->IsNumber() || !args[1]->IsNumber() || !args[2]->IsNumber() || !args[3]->IsNumber()) {
-		isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Wrong arguments")));
+		// isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Wrong arguments")));
 		return;
 	}
 
