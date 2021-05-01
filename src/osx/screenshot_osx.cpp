@@ -23,12 +23,14 @@ void Method(const FunctionCallbackInfo<Value>& args) {
 	int x = args[0]->NumberValue(context).FromJust();
 	int y = args[1]->NumberValue(context).FromJust();
 	int width =  args[2]->NumberValue(context).FromJust();
-	int height = args[3]->NumberValue(context).FromJust();;
+	int height = args[3]->NumberValue(context).FromJust();
+
+
 	
 	Nan::Utf8String param1(args[4]->ToString(context).ToLocalChecked());
     std::string value = std::string(*param1);
 
-	getScreen(x, y, width, height, *String::Utf8Value(args[4]));
+	getScreen(x, y, width, height, *String::Utf8Value(isolate,value));
 
 	//Performe the operation
 	v8::Local<v8::Function> cb = Local<Function>::Cast(args[5]);
