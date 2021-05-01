@@ -30,7 +30,9 @@ void Method(const FunctionCallbackInfo<Value>& args) {
 	Nan::Utf8String param1(args[4]->ToString(context).ToLocalChecked());
     std::string value = std::string(*param1);
 
-	getScreen(x, y, width, height, *String::Utf8Value(isolate,value));
+    Local<String> imgpath = args[4]->ToString(context).ToLocalChecked();
+
+	getScreen(x, y, width, height, *String::Utf8Value(isolate,imgpath));
 
 	//Performe the operation
 	v8::Local<v8::Function> cb = Local<Function>::Cast(args[5]);
